@@ -1,0 +1,58 @@
+.container {
+  text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* we will change visibility to visible when we hover over the element  */
+  visibility: hidden;
+
+  /* we will keep opacity to 0 and change it to 1 with hover effect. 
+  we will use transition property to change the opacity from 0 to 1 on hover */
+  opacity: 0;
+  transition: opacity 0.3s;
+  
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Now we see our CSS styling is working, but we need to create a down arrow */
+/* So for this, we will use pseudo selector ::after to style the css */
+.tooltip .tooltiptext::after {
+  content: "";  /* this will be empty as we dont want any content */
+   /* border: 5px solid brown; this is just to check and set the position */
+  /* we now have set the position of our empty content with border of 5px */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+ /* setting the position  */
+  margin-left: -5px;
+
+  /* we want border width to be 5px, style solid */
+  border-width: 5px;
+  border-style: solid;
+  /* Now to have arrow look alike, we will set border color border color,
+   and makes the top, right, and left borders transparent.  */
+  border-color: #555 transparent transparent transparent; 
+}
